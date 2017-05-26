@@ -1,0 +1,129 @@
+ <!DOCTYPE html >
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+	<script src="jquery-3.2.0.js"></script> 
+    <script src="jquery-3.2.0.min.js"></script>			 	
+	<title>Urban Ink</title>
+	<link rel="shortcut icon" href="resources/logo_all/logo_icon.ico" type="image/png">
+    <link href="style.css" rel="stylesheet">
+ <script>
+   var video;
+    function pause()
+    {
+        video.pause();
+        $( ".tryit" ).fadeIn( 1000 );
+    }
+    
+    $(document).ready(function()
+     {  
+
+    $(".tryit").click(function(){
+       video.play();
+        $( ".tryit" ).fadeOut( 1500 );
+        setTimeout(function(){$(".greeting").fadeIn(1500);},3000);
+    });
+        video = $("video").get(0);     
+        video.play();
+        setTimeout(pause,4000);
+        video.addEventListener("ended",function(){
+            video.src="ff.mp4";
+            video.load();
+            video.play();
+            video.loop=true;
+            });
+        $(".tryit").mouseover(function(){
+            $(".tone").fadeIn(500);
+        });
+        $(".tryit").mouseout(function(){
+            $(".tone").fadeOut(500);
+        });
+         
+         });
+    function lock()
+        {
+           var scrollToTop = window.setInterval(function() {
+           var pos = window.pageYOffset;
+            if ( pos > 0 ) {
+                window.scrollTo( 0, pos - 20 ); 
+               } else {
+            window.clearInterval( scrollToTop );
+                }
+            }, 16);
+            $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+            });
+        }
+    function unlock()
+        {
+            $('html, body').css({
+            overflow: 'auto',
+            height: 'auto'
+            }); 
+            $(window).scrollTop($(".navbar").offset().top-10);
+        }
+    </script>
+</head>	    
+<body onload="lock();">
+  	<section class="content">
+        <div class="tone"></div>
+        <div class="greeting">
+            <h1><img class="ico" src="logo1.png"> Urban Ink</h1>
+            <h3>“Show me a man with a tattoo and I'll <br>
+                show you a man with an interesting past.” </h3>
+            <h2>Jack London</h2>
+             <h3>“Our bodies were printed as blank pages <br>
+                to be filled with the ink of our hearts” </h3>
+            <h2> Michael Biondi</h2>
+             <h3 class="small_h3"  >“Wear your heart on your skin in this life.” </h3>
+            <h2>Sylvia Plath</h2>
+             <h3 class="small_h3">“Tattoos are a permanent commitment of passion”</h3>
+            <h2>Tawny Lara</h2>
+            <button class="getbeg" onclick="unlock();">Get Started</button></div>
+		<video autoplay loop class="clip">	
+			<source src="ff.mp4" type="video/mp4">
+		</video>
+          <button class="tryit">Try It</button>
+          <div class="navbar">
+          <ul class="navlist">
+              <li class="navtab">
+                  <ul class="subnav">
+                      <li class="sublist">Urban Ink</li>
+                      <li class="sublist">Gallery</li>
+                      <li class="sublist">Masters</li>
+                      <li class="sublist">Inspiration</li>
+                  </ul>
+              </li>
+              <li class="navtab min mid">
+                  <input type="text" name="Search" id="find_input">
+                  <img src="black_search.png" id="find_icon">
+              </li>
+              <li class="navtab min">
+                  <ul class="subnav">
+                  <li class="sublist small">Sign In</li>
+                  <li class="sublist small">Sign Up</li>
+                  </ul>
+              </li>
+          </ul>
+          </div>
+        <div class= "visual">
+            <video autoplay loop class="menu_mov">
+                <source   src="resources/media/fin.mp4" type="video/mp4">
+            </video>
+        </div>
+        <h1 id="motto">Follow urban family...</h1>
+        <ul class="social">
+             <li class="tmp">c</li><li class="tmp_name">Facebook</li>
+             <li class="tmp">d</li><li class="tmp_name">Twitter</li>
+             <li class="tmp">e</li><li class="tmp_name">Google+</li>
+             <li class="tmp">f</li><li class="tmp_name">Instagram</li>
+             <li class="tmp">j</li><li class="tmp_name">Tumblr</li>
+             <li class="tmp">k</li><li class="tmp_name">VK</li>
+             <li class="tmp">m</li><li class="tmp_name">Snapchat</li>
+        </ul>
+		<div class="landing"></div>
+        <div class="coverfoot">COPYRIGHT&nbsp; | &nbsp;POLINA KLOMINA&nbsp; | &nbsp;LVIV 2017</div>
+	</section>	
+</body>
+</html>

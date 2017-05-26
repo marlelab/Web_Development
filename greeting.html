@@ -1,0 +1,96 @@
+ <!DOCTYPE html >
+<html lang="en">
+<head>
+     <meta charset="utf-8">
+	<script src="jquery-3.2.0.js"></script> 
+    <script src="jquery-3.2.0.min.js"></script>			 	
+	<title>Urban Ink</title>
+	<link rel="shortcut icon" href="logo.ico" type="image/png">
+    <link href="style_grt.css" rel="stylesheet">
+ <script>
+ /*  var video;
+    function pause()
+    {
+        video.pause();
+        $( ".tryit" ).fadeIn( 1500 );
+        $(".coverfoot").fadeIn( 1000 );
+    }
+    
+    $(document).ready(function()
+     {  
+
+    $(".tryit").click(function(){
+       video.play();
+        $( ".tryit" ).fadeOut( 1500 );
+        setTimeout(function(){$(".greeting").fadeIn(1500);
+      $(".coverfoot").css("background-color","transparent");
+       $(".coverfoot").css("color","black");
+      },3000);
+    });
+        video = $("video").get(0);     
+        video.play();
+        setTimeout(pause,4000);
+        video.addEventListener("ended",function(){
+            video.src="ff.mp4";
+            video.load();
+            video.play();
+            video.loop=true;
+            });
+        $(".tryit").mouseover(function(){
+            $(".tone").fadeIn(500);
+        });
+        $(".tryit").mouseout(function(){
+            $(".tone").fadeOut(500);
+        });
+         
+         });*/
+    function lock()
+        {
+           var scrollToTop = window.setInterval(function() {
+           var pos = window.pageYOffset;
+            if ( pos > 0 ) {
+                window.scrollTo( 0, pos - 20 ); // how far to scroll on each step
+               } else {
+            window.clearInterval( scrollToTop );
+                }
+            }, 16);
+            $('html, body').css({
+            overflow: 'hidden',
+            height: '100%'
+            });
+        }
+    function unlock()
+        {
+            $('html, body').css({
+            overflow: 'auto',
+            height: 'auto'
+            }); 
+            $(window).scrollTop($(".navbar").offset().top-10);
+        }
+    </script>
+</head>	    
+<body onload="lock()">
+	<section class="content">
+        <div class="tone"></div>
+        <div class="greeting">
+            <h1>Urban Ink</h1>
+            <h3>“Show me a man with a tattoo and I'll <br>
+                show you a man with an interesting past.” </h3>
+            <h2>Jack London</h2>
+             <h3>“Our bodies were printed as blank pages <br>
+                to be filled with the ink of our hearts” </h3>
+            <h2> Michael Biondi</h2>
+             <h3 class="small_h3">“Wear your heart on your skin in this life.” </h3>
+            <h2>Sylvia Plath</h2>
+             <h3 class="small_h3">“Tattoos are a permanent commitment of passion”</h3>
+            <h2>Tawny Lara</h2>
+            <button class="getbeg" onclick="unlock()">Get Started</button></div>
+		    <video  class="clip">	
+			        <source src="ff.mp4" type="video/mp4">
+		    </video>
+        <button class="tryit">Try It</button>
+        <div class="coverfoot">COPYRIGHT&nbsp; | &nbsp;POLINA KLOMINA&nbsp; | &nbsp;LVIV 2017</div>
+	</section>	
+</body>
+</html>
+  
